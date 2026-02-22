@@ -21,11 +21,13 @@ pipeline {
             steps{
                 echo   "Criando imagem Docker do projeto..."
                 sh  "docker build -t corrida-node ."
+                sh  "docker images"
             }
         }
         stage("Criando container e teste de execução...") {
             steps {
                 sh  "docker run --rm corrida-node"
+                sh  "docker ps"
             }
         }
         stage("deploy") {
