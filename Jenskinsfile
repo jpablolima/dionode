@@ -23,7 +23,7 @@ pipeline {
                 sh  "docker build -t corrida-node ."
             }
         }
-        stage("Criando container e teste de execução... ) {
+        stage("Criando container e teste de execução...") {
             steps {
                 sh  "docker run --rm corrida-node"
             }
