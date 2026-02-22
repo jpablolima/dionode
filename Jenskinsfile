@@ -17,6 +17,17 @@ pipeline {
             }
 
         }
+        stage("Build Image...") {
+            steps{
+                echo   "Criando imagem Docker do projeto..."
+                sh  "docker build -t corrida-node ."
+            }
+        }
+        stage(Criando container e teste de execução...) {
+            steps {
+                sh  "docker run --rm corrida-node"
+            }
+        }
         stage("deploy") {
             steps {
                 echo  "deplying the application..."

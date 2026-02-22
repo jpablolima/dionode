@@ -1,10 +1,14 @@
-FROM jenkins/jenkins:lts
-
-USER root
+FROM node:20-alpine
 
 
-RUN apt update && apt install -y docker.io nodejs npm && \
-    apt clean
+WORKDIR /app
+
+COPY package.json ./
+
+RUN npm install --production
 
 
-USER jenkins
+COPY . .
+
+CMD ["node", "src/main.js"]
+
