@@ -6,6 +6,8 @@ pipeline {
         stage ("build") {
             steps{
                 echo   "building the application..."
+                node -v
+                cd /src/main.js
             }
     }
         stage("test") {
@@ -19,8 +21,5 @@ pipeline {
                 echo  "deplying the application..."
             }
         }
-}
-
-
-
+    }
 }
