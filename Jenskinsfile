@@ -6,8 +6,9 @@ pipeline {
         stage ("build") {
             steps{
                 echo   "building the application..."
-                node -v
-                cd /src/main.js
+                sh  "node -v"
+                sh  "ls  -la"
+                sh 'node src/main.js'
             }
     }
         stage("test") {
