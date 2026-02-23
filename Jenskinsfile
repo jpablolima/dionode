@@ -27,7 +27,7 @@ pipeline {
         stage("Criando container e teste de execução...") {
             steps {
                 sh  "docker run --rm corrida-node"
-                sh  "docker ps"
+                
             }
         }
         stage("deploy") {
