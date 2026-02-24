@@ -8,7 +8,7 @@ pipeline {
                 echo   "building the application..."
                 sh '/home/pablo/.nvm/versions/node/v20.17.0/bin/node -v'
                 sh  "ls  -la"
-                sh '/home/pablo/.nvm/versions/node/v20.17.0/bin/node src/main.js'
+                //  sh '/home/pablo/.nvm/versions/node/v20.17.0/bin/node src/main.js'
             }
     }
         stage("test") {
@@ -27,7 +27,7 @@ pipeline {
         stage("Criando container e teste de execução...") {
             steps {
                 sh  "docker run --rm corrida-node"
-                
+
             }
         }
         stage("deploy") {
