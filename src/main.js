@@ -75,10 +75,28 @@ async function playRaceEngine(character1, character2){
             let powerResult1 = diceResult1 + character1.Poder;
             let powerResult2 = diceResult2 + character2.Poder;
 
+            console.log(`${character1.Name} confrontou com ${character2.Name}!`);
 
+            await logRollResult(character1.Name,  "Poder", diceResult1, character1.Poder);
+            await logRollResult(character2.Name,  "Poder", diceResult2, character2.Poder);
+
+            character2.Pontos -= powerResult1 > powerResult2 && character2.Pontos > 0 ? 1 : 0;
+            character1.Pontos -= powerResult2 > powerResult1 && character1.Pontos > 0 ? 1 : 0;
+
+            console.log(
+                powerResult2 === powerResult1 ?  "Confronto empatado! Nenhum ponto foi perdido" :  ""
+            );
+
+       }
+
+        if (totalTestSkill1 > totalTestSkill2) {
+            console.log(`${character1.Name} marcou um ponto!`);
+            character1.Pontos++;
+        } else if (totalTestSkill2 > totalTestSkill1) {
+            console.log(`${character2.Name} marcou um ponto!`);
+            character2.Pontos++;
         }
-
-
+            console.log("___________________________________________")
     }
 
 
