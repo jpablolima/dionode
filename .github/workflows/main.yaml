@@ -1,5 +1,5 @@
-name:  Deplying the Application
-run-name: ${{   github.actor   }}  Deplying the Application
+name:  Running Race Simulation
+run-name: ${{   github.actor   }}  is running the race
 on:
     push:
       branches:
@@ -12,5 +12,5 @@ jobs:
           - uses: actions/setup-node@v4
             with:
               node-version: '20'
-          - run: npm install -g bats
-          - run: bats -v
+          - run: node src/main.js
+         
