@@ -12,5 +12,8 @@ jobs:
           - uses: actions/setup-node@v4
             with:
               node-version: '20'
-          - run: node src/main.js
-         
+          - run: |
+                echo   "Criando imagem Docker do projeto..."
+                docker build -t corrida-node .
+                docker images
+
