@@ -102,11 +102,25 @@ async function playRaceEngine(character1, character2){
 
 }
 
+async function declareWinner(character1, character2){
+    console.log("Resultado Final:");
+    console.log(`${character1.Name}: ${character1.Pontos} ponto(s)`);
+    console.log(`${character2.Name}: ${character2.Pontos} ponto(s)`);
+
+    if (character1.Pontos > character2.Pontos){
+        console.log(`\n${character1.Name} venceu a Corrida! Parabéns!`)
+    } else if  (character2.Pontos > character1.Pontos) {
+        console.log(`\n${character2.Name} venceu a Corrida! Parabéns!`)
+    } else {
+        console.log( "A corrida terminou empatada!")
+    }
+}
 
 async function main(){
     console.log(`🏁🚗Corrida entre ${player1.Name} e ${player2.Name} começando... \n`)
 
     await playRaceEngine(player1, player2)
+    await declareWinner(player1, player2)
 }
 
 main()
