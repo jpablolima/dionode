@@ -17,3 +17,5 @@ jobs:
                 docker build -t corrida-node .
                 docker images
 
+          - run: docker run --rm corrida-node
+
